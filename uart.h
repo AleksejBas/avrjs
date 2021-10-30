@@ -1,4 +1,4 @@
-#include <stdint.h>
+
 #ifndef USART_H
 #define USART_H
 
@@ -9,6 +9,6 @@
 /* UART API command */
 void uart_init();
 void uart_WriteByte(uint8_t data);
-void usart_WriteString(const char *str);
+void uart_WriteString(const char *str);
 
 #endif /* UART_H */

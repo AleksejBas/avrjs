@@ -1,6 +1,4 @@
-#include <avr/io.h>
-#include <util/delay.h>
-#include "uart.cpp"
+#include "HAL.h"
 
 int main (void)
 {
@@ -10,7 +8,7 @@ int main (void)
     {
         _delay_ms(1000);
         PORTB ^= (1 << PB5);
-        uart_WriteString("Hi, I'am Aleksey!");
+        uart_WriteString("Hi, I'am Aleksey!\n");
     }
   return 0;
 }
