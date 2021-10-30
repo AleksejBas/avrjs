@@ -1,0 +1,14 @@
+#include <stdint.h>
+#ifndef USART_H
+#define USART_H
+
+/* Заголовки и определения */
+#define baudrate 9600UL
+#define bauddivider F_CPU/(16*baudrate)-1 
+
+/* UART API command */
+void uart_init();
+void uart_WriteByte(uint8_t data);
+void usart_WriteString(const char *str);
+
+#endif /* UART_H */
