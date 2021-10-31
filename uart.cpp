@@ -17,3 +17,9 @@ void uart_WriteString(const char *str)
 		uart_WriteByte(*str++);
 	}
 }
+
+uint8_t uart_ReadByte(void)
+{
+	while (!( UCSR0A & (1 << RXC0)));
+	return UDR0;
+}
