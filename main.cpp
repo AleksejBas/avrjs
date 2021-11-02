@@ -1,5 +1,9 @@
 #include "HAL.h"
 
+unsigned char Buff[32] = { };
+
+void clearBuff();
+
 int main (void)
 {
     uart_init();
@@ -10,14 +14,15 @@ int main (void)
         // PORTB ^= (1 << PB5);
         // uart_WriteString("\r");
         // uart_WriteString("Hi, I'am Aleksey!");
-        uint8_t data = uart_ReadByte();
-        if(data == 'A'){
-          uart_WriteString("\r");
-          uart_WriteString("PortB5 togle");
-          PORTB ^= (1 << PB5);
-        }else{
-          uart_WriteString("\f");
-        }
+        uart_ReadArray(Buff);
+        uart_WriteArray(Buff);
+        uart_WriteByte('\n');
+        clearBuff();
+        _delay_ms(1000);
     }
   return 0;
+}
+
+void clearBuff(){
+  for(uint8_t i = 0; i < 32; i++) Buff[i] = 0;
 }

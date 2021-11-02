@@ -23,3 +23,21 @@ uint8_t uart_ReadByte(void)
 	while (!( UCSR0A & (1 << RXC0)));
 	return UDR0;
 }
+
+void uart_WriteArray(uint8_t *data)
+{
+	while (*data != 0)
+	{
+		while(!( UCSR0A & (1 << UDRE0)));
+		UDR0 = *data++;
+	}
+	
+}
+
+void uart_ReadArray(uint8_t *data)
+{
+	do{
+		while(!(UCSR0A & (1 << RXC0)));
+		*data = UDR0;
+	}while (*data++ != ';');
+}
