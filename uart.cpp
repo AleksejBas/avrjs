@@ -13,7 +13,7 @@ void uart_WriteByte(uint8_t data)
 }
 void uart_WriteString(const char *str)
 {
-	while(*str!=0) {
+	while(*str != 0) {
 		uart_WriteByte(*str++);
 	}
 }

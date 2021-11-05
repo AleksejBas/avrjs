@@ -4,4 +4,5 @@
 #include <util/delay.h>
 #include <stdint.h>
 #include "avrjs/uart.h"
+#include "avrjs/parser.h"
 #endif /* HAL_H */
