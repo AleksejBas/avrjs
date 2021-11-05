@@ -9,7 +9,6 @@ unsigned char value[32];
 
 void clearBuff();
 void clearData(uint8_t *data);
-void parser(uint8_t *data, uint8_t *a, uint8_t *b, uint8_t *c, uint8_t *d);
 
 int main (void)
 {
@@ -25,7 +24,7 @@ int main (void)
         uart_ReadArray(Buff);
         uart_WriteArray(Buff);
         uart_WriteByte('\r');
-        parser(Buff, type, name, action, value);
+        parts(Buff, type, name, action, value);
         uart_WriteArray(type);
         uart_WriteByte('\r');
         uart_WriteArray(name);
@@ -51,31 +50,7 @@ void clearData(uint8_t *data){
   for(uint8_t i = 0; i < 32; i++) *data++ = 0;
 }
 
-void parser(uint8_t *data, uint8_t *a, uint8_t *b, uint8_t *c, uint8_t *d)
-{
-  do
-  {
-      *a++ = *data;
-  } while(*data++ != ' ');
 
-  do
-  {
-      *b++ = *data;
-  } while(*data++ != ' ');
-  
-  do
-  {
-      *c++ = *data;
-  } while(*data++ != ' ');
-  
-  while(*data != 0 )
-  {
-    if(*data != ';' && *data != ' '){
-      *d++ = *data++;
-    }else{
-      data++;
-    }
-  }
   // switch (Buff[1])
   // {
   // case '-': switch (Buff[2])
@@ -86,4 +61,3 @@ void parser(uint8_t *data, uint8_t *a, uint8_t *b, uint8_t *c, uint8_t *d)
   
   // default: uart_WriteString("Not command!"); break;
   // }
-}
