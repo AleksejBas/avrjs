@@ -36,30 +36,6 @@ void parts(uint8_t *data, uint8_t *a, uint8_t *b, uint8_t *c, uint8_t *d)
     }
     data++;
   }
-  // do
-  // {
-  //     *a++ = *data;
-  // } while(*data++ != ' ');
-  // if(*data != 0){
-  // do
-  // {
-  //     *b++ = *data;
-  // } while(*data++ != ' ');
-  // }
-  // if(*data != 0){
-  // do
-  // {
-  //     *c++ = *data;
-  // } while(*data++ != ' ');
-  // }
-  // if(*data != 0){
-  // do
-  // {
-  //   if(*data != ';'){
-  //     *d++ = *data;
-  //   }
-  // } while(*data++ != 0);
-  // }
 }
 
 void type(uint8_t *type)
