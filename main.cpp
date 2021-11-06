@@ -17,10 +17,6 @@ int main (void)
     
     while (1)
     {
-        // _delay_ms(1000);
-        // PORTB ^= (1 << PB5);
-        // uart_WriteString("\r");
-        // uart_WriteString("Hi, I'am Aleksey!");
         uart_ReadArray(Buff);
         uart_WriteArray(Buff);
         uart_WriteByte('\r');
@@ -38,7 +34,6 @@ int main (void)
         clearData(name);
         clearData(action);
         clearData(value);
-        // _delay_ms(1000);
     }
   return 0;
 }
@@ -49,15 +44,3 @@ void clearBuff(){
 void clearData(uint8_t *data){
   for(uint8_t i = 0; i < 32; i++) *data++ = 0;
 }
-
-
-  // switch (Buff[1])
-  // {
-  // case '-': switch (Buff[2])
-  // {
-  // case 'v': uart_WriteString("Version 1.0.0"); break;
-  // default: uart_WriteString("Error"); break;
-  // } break;
-  
-  // default: uart_WriteString("Not command!"); break;
-  // }
